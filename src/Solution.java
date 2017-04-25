@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
 в качестве аргумента принимается String
 */
 
-interface FuncInt<String> {
+interface FuncInt {
     ArrayList<String> sortText(ArrayList<String> list, int index);
 }
 
@@ -31,10 +31,10 @@ public class Solution {
             System.out.println("сортировка будет производится по " + index + " слову в строке");
             for (int i = list.size() - 1; i >= 0; i--) {
                 for (int j = 0; j < i; j++) {
-                    String[] str1 = list.get(j).toString().split(" ");
-                    String[] str2 = list.get(j + 1).toString().split(" ");
-                    if (str1[index].toString().charAt(0) > str2[index].toString().charAt(0)) {
-                        String tmp = list.get(j).toString();
+                    String[] str1 = list.get(j).split(" ");
+                    String[] str2 = list.get(j + 1).split(" ");
+                    if (str1[index].charAt(0) > str2[index].charAt(0)) {
+                        String tmp = list.get(j);
                         list.set(j, list.get(j));
                         list.set(j + 1, tmp);
                     }
